@@ -1,0 +1,21 @@
+create database attendance_id;
+use attendance_id;
+create table attendance (
+    student_id INT,
+    student_name VARCHAR(50),
+    class_date DATE,
+    status ENUM('Present', 'Absent'),
+    PRIMARY KEY (student_id, class_date)
+);
+insert into attendance (student_id, student_name, class_date, status) 
+values (01, 'monty', '2025-07-16', 'Present'), 
+(02, 'tushar', '2025-07-16', 'Absent');
+select * from attendance;
+-- by using CRUD--
+update attendance set status = 'Absent' where student_id = 01;
+select * from attendance;
+insert into attendance (student_id, student_name, class_date, status) 
+values (03, 'girish', '2025-07-16', 'Present');
+select * from attendance;
+delete from attendance where student_id = 02;
+select * from attendance;
