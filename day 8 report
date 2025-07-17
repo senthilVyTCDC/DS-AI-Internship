@@ -1,0 +1,44 @@
+import mysql.connector
+connect = mysql.connector.connect(
+    host="localhost",
+    user="root",
+    password="Spidermanismessi10",
+)
+cursor = connect.cursor()
+cursor.execute("drop database if exists attendance_id")
+cursor.execute("create database attendance_id")
+print("database 'attendance_id' created.")
+connect.database= "attendance_id"
+cursor.execute("""
+create table attendance (
+    student_id INT,
+    student_name VARCHAR(50),
+    class_date DATE,
+    status ENUM('Present', 'Absent'),
+    PRIMARY KEY (student_id, class_date)
+)
+""")
+print("Table 'attendance' created.")
+insert_query=("INSERT INTO attendance (student_id, student_name, class_date, status) VALUES (%s, %s, %s, %s)")
+attendance_data= [(1, 'monty', '2025-07-16', 'Present'),
+(2, 'tushar', '2025-07-16', 'Absent'),(3, 'girish', '2025-07-16', 'Present')]
+for attendance in attendance_data:
+    cursor.execute(insert_query, attendance)
+connect.commit()
+cursor.execute("select * from attendance")
+for row in cursor.fetchall():
+    print(row)
+cursor.execute("update attendance set status = 'Present' where student_id = 2")
+connect.commit()
+print("\nafter updated status of student_id=2")
+cursor.execute("select * from attendance")
+for row in cursor.fetchall():
+    print(row)
+cursor.execute("delete from attendance where student_id = 3")
+connect.commit()
+print("\nafter deleting student 3")
+cursor.execute("select * from attendance")
+for row in cursor.fetchall():
+    print(row)
+cursor.close()
+connect.close()
