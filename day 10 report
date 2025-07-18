@@ -1,0 +1,96 @@
+'''Task1- Greatest of 2 numbers'''
+  
+a = int(input("Enter number a :"))
+b = int(input("Enter number b :"))
+
+if a > b:
+    print("a is greater than b")
+else:
+    print("b is greater than a")
+
+-------------------------------------------------------------------------------------------------------------------------
+
+''' Task 2- Leap year '''
+   
+year = int(input("Enter year :"))
+if year % 4 == 0:
+    if year % 100 == 0:
+        if year % 400 == 0:
+            print(f"The year {year} is a leap year")
+        else:
+            print(f"The year {year} is not a leap year")
+    else:
+        print(f"The year {year} is a leap year")
+else:
+    print(f"The year {year} is not a leap year")
+
+--------------------------------------------------------------------------------------------------------------------------
+
+''' Task 3- eligible for voting '''
+
+age = int(input("Enter your age"))
+
+if age >= 18:
+    print("Eligible for voting")
+else:
+    print("Not eligible for voting")
+
+------------------------------------------------------------------------------------------------------------------------
+
+''' Task 4 - Movie review '''
+
+star=int(input("Enter How many stars you wil give the movie, Between 1-5 : "))
+if star==1:
+    print("Not satisfied")
+elif star==2:
+    print("Average")
+elif star==3:
+    print("Good")
+elif star == 4:
+    print("Very good")
+elif star==5:
+    print("Excellent")
+else:
+    print("Enter a valid star rating")
+
+-------------------------------------------------------------------------------------------------------------------------
+
+''' Task 5 - Mark grading '''
+
+mark=int(input("Enter your mark between 0-100 : "))
+if mark >100:
+    print("invalid mark")
+elif mark>90:
+    print("Your grade is O")
+elif mark>80:
+    print("Your grade is A")
+elif mark>70:
+    print("Your grade is A+")
+elif mark>60:
+    print("Your grade is B")
+elif mark>50:
+    print("Your grade is B+")
+elif mark>=40:
+    print("Your grade is C")
+else:
+    print("F, You have Failed")
+
+-------------------------------------------------------------------------------------------------------------------------
+
+''' Task 6 - EB Bill '''
+
+usage = int(input("Enter how much u have used: "))
+if usage <= 100:
+    charge = 0
+elif usage <= 200:
+    charge = (usage - 100) * 1.5
+elif usage <= 300:
+    charge = (usage - 100) * 2
+elif usage <= 400:
+    charge = (usage - 100) * 2.5
+else:
+    charge = (usage - 100) * 3
+
+print("The total bill charged is = ",charge)
+      
+------------------------------------------------------------------------------------------------------------------------
