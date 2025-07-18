@@ -1,0 +1,39 @@
+import mysql.connector
+connect = mysql.connector.connect(
+    host="localhost",
+    user="root",
+    port=3306,
+    password="Spidermanismessi10",
+    database= 'customer_banking'
+)
+cursor = connect.cursor()
+account_no = int(input("Enter Account No: "))
+
+cursor.execute("select * from bank where account_no = %s", (account_no,))
+customer = cursor.fetchone()
+
+if customer:
+    name, account_no, account_balance = customer
+    print(f"\nHello, Mister {name}")
+    ch = input("Enter 1 for Withdrawal or 2 for Deposit: ")
+
+    if ch == '1':
+        amount = float(input("\nEnter the amount for withdrawal : "))
+        if amount > account_balance:
+            print("\nInsufficient balance")
+        else:
+            cursor.execute("update bank set account_balance = account_balance - %s WHERE account_no = %s", (amount, account_no))
+            connect.commit()
+            print("\nAmount withdrawn successfully")
+    elif ch == '2':
+        amount = float(input("\nEnter the amount for deposit : "))
+        cursor.execute("update bank set account_balance = account_balance + %s where account_no = %s",(amount, account_no))
+        connect.commit()
+        print("\nAmount has been deposited successfully")
+    else:
+        print("\nYou have selected invalid option ")
+else:
+    print("\nAccount is not found. verify and type again")
+
+cursor.close()
+connect.close()
