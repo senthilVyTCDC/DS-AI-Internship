@@ -11,7 +11,6 @@ insert into attendance (student_id, student_name, class_date, status)
 values (01, 'monty', '2025-07-16', 'Present'), 
 (02, 'tushar', '2025-07-16', 'Absent');
 select * from attendance;
--- by using CRUD--
 update attendance set status = 'Absent' where student_id = 01;
 select * from attendance;
 insert into attendance (student_id, student_name, class_date, status) 
