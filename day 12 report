@@ -1,0 +1,48 @@
+''' Task 1 - Check whether given number is a prime number '''
+  
+def prime(number):
+    if number <= 1:
+        return False
+    for i in range(2, number):
+        if number % i == 0:
+            break
+    else:
+        return True
+    return False
+
+num = int(input("Enter a number: "))
+if prime(num):
+    print(f"{num} is a prime number.")
+else:
+    print(f"{num} is not a prime number.")
+-----------------------------------------------------------------------
+  ''' Task 2 - Factors of a given number '''
+
+num = int(input("Enter a number: "))
+
+print(f"Factors of {num} are:")
+
+for i in range(1, num + 1):
+    if num % i != 0:
+        continue
+    print(i)
+-----------------------------------------------------------------------
+  ''' Task 3 - Print prime number between the given number '''
+
+def prime(n):
+    if n <= 1:
+        return False
+    for i in range(2, n):
+        if n % i == 0:
+            break
+    else:
+        return True
+    return False
+
+limit = int(input("Enter a number: "))
+
+print(f"Prime numbers up to {limit} are:")
+for num in range(2, limit + 1):
+    if prime(num):
+        print(num, end=' ')
+-----------------------------------------------------------------------
