@@ -1,0 +1,108 @@
+''' Task 1 - even number '''  
+  
+limit = int(input("Enter a number: "))
+print("Even numbers from 1 to", limit, ":")
+for i in range(1, limit + 1):
+    if i % 2 == 0:
+        print(i)
+------------------------------------------------------
+  
+ ''' Task 2 - Print Name N time '''
+  
+name = input("Enter your name: ")
+n = int(input("Enter how many times to print your name: "))
+for i in range(n):
+    print(name)
+------------------------------------------------------
+ ''' Task 3 - Largest of N numbers '''
+
+n = int(input("How many numbers? "))
+numbers = []
+
+for i in range(n):
+    num = float(input(f"Enter number {i+1}: "))
+    numbers.append(num)
+
+largest = max(numbers)
+print("The largest number is:", largest)
+------------------------------------------------------
+  '''Task 4 - Fibonacci series '''
+
+n = int(input("How many terms of the Fibonacci series do you want? "))
+a, b = 0, 1
+count = 0
+print("Fibonacci series:")
+while count < n:
+    print(a)
+    a, b = b, a + b
+    count += 1
+-----------------------------------------------------
+''' Task 5 - Xylem number '''
+
+n = int(input("Enter a number: "))
+temp=n
+ext = 0
+mid = 0
+while(n>0):
+    if temp == n or n < 10:
+        ext = ext + n%10
+    else:
+        mid = mid + n%10
+    n=n//10
+if ext == mid:
+    print("Xylem Number")
+else:
+    print("Not a Xylem Number")
+-----------------------------------------------------
+''' Task 6 - Palindrome number '''
+      
+num = int(input("Enter a number: "))
+original = num
+reverse = 0
+
+while num > 0:
+    digit = num % 10
+    reverse = reverse * 10 + digit
+    num = num // 10
+
+if original == reverse:
+    print(f"{original} is a Palindrome.")
+else:
+    print(f"{original} is not a Palindrome.")
+------------------------------------------------------
+  ''' Task 7 - Details of N employees '''
+      
+n = int(input("Enter the number of employees: "))
+employees = []
+for i in range(n):
+    print(f"\nEnter details for Employee {i+1}:")
+    emp_id = input("Employee ID: ")
+    name = input("Name: ")
+    department = input("Department: ")
+    designation = input("Designation: ")
+
+    employee = {
+        "Employee ID": emp_id,
+        "Name": name,
+        "Department": department,
+        "Designation": designation
+    }
+    employees.append(employee)
+-----------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
