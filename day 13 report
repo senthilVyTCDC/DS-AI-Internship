@@ -1,0 +1,71 @@
+''' Task 1- Banking operations using Function defining styles '''
+account ={
+    "name": "Monty",
+    "account_number": "12345678",
+    "balance": 50000}
+
+def deposit():
+    amount = int(input("Enter amount to deposit: "))
+    if amount > 0:
+        account['balance'] += amount
+        print(f"Deposited {amount:}.Remaining Balance: {account['balance']:}")
+    else:
+        print("Invalid amount.")
+
+def withdraw(amount):
+    if 0 < amount <= account['balance']:
+        account['balance'] -= amount
+        print(f"Withdrew {amount:}. Remaining Balance: {account['balance']:}")
+    else:
+        print("Invalid or insufficient balance.")
+
+
+def view_profile(data):
+    return (f"Name: {data['name']}, Account No: {data['account_number']}")
+
+
+def balance_statement():
+    return (f"Current Balance: {account['balance']:}")
+
+while True:
+    print("1. Deposit")
+    print("2. Withdraw")
+    print("3. View Profile")
+    print("4. Balance Statement")
+    print("5. Exit")
+
+    choice = input("Choose an option (1-5): ")
+
+    if choice == '1':
+        deposit()
+    elif choice == '2':
+        amt = float(input("Enter amount to withdraw: "))
+        withdraw(amt)
+    elif choice == '3':
+        result = view_profile(account)
+        print(result)
+    elif choice == '4':
+        balance = balance_statement()
+        print(balance)
+    elif choice == '5':
+        print("Goodbye")
+        break
+    else:
+        print("Invalid choice.")
+------------------------------------------------------------------------------------------
+
+  ''' Task 2 - Fibonacci series using recusion '''
+def fibonacci(n):
+    if n <= 0:
+        return 0
+    elif n == 1:
+        return 0
+    elif n == 2:
+        return 1
+    else:
+        return fibonacci(n-1)+fibonacci(n-2)
+
+n =int(input("Enter the position in the Fibonacci sequence: "))
+value = fibonacci(n)
+print(f"The value of Fibonacci number in {n} is: {value}")
+--------------------------------------------------------------------------------------------
